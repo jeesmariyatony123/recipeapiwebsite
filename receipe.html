@@ -85,7 +85,7 @@
     <main>
         <section>
             <div class="recipe-container">
-                <h2 class="text-dark ">Search Your Favourite Recipes</h2>
+                <h2 class="text-dark ">Search Your Favourite Recipes...</h2>
             </div>
             <div class="recipe-details">
                 <button type="button" class="recipe-close-btn">
@@ -95,24 +95,6 @@
             </div>
         </section>
     </main>
-
-    <!-- <section>
-        <div class="container mt-5 ">
-            <div id="result" class="row">
-                <div class="col-lg-4 mb-2">
-                    <div class="card shadow p-1" >
-                        <img src="${meal.strMealThumb}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">${meal.strMeal}</h5>
-                            <p class="card-text">Cuisine: ${meal.strArea}</p>
-                        </div>
-                    </div>
-                </div>
-    
-            </div>
-        </div>
-    </section> -->
-
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
@@ -128,7 +110,9 @@
 
     // function to get recipes
     const fetchRecipes = async (query) => {
-        recipeContainer.innerHTML = "<h2>Fetching Recipes...</h2>"
+        recipeContainer.innerHTML = "<h2>Fetching Recipes...</h2>";
+
+        try { 
         const data = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`)
         const response = await data.json()
 
@@ -156,7 +140,10 @@
             recipeContainer.appendChild(recipeDiv)
         })
         // console.log(response.meals[0]);
+    }catch(error){
+        recipeContainer.innerHTML = "<h2>Error in Fetching Recipes...</h2>";
 
+    }
     }
 
 
@@ -197,6 +184,10 @@
 
     searchBtn.addEventListener('click', () => {
         const searchInput = searchBox.value.trim()
+        if (!searchInput) {
+            recipeContainer.innerHTML = `<h2>Type the meal in the search box.</h2> `
+            return;
+        }
         fetchRecipes(searchInput)
         // console.log("Button Clicked");
     })
