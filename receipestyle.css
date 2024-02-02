@@ -18,7 +18,7 @@
     padding: 0.5rem;
 }
 
-.login-button {
+/* .login-button {
     background-color: #009978;
     color: #fff;
     font-size: 14px;
@@ -30,7 +30,7 @@
 
 .login-button:hover {
     background-color: #00b383;
-}
+} */
 
 /* .navbar-toggler {
     border: none;
@@ -63,7 +63,9 @@
         transform: translateX(-50%);
         width: 100%;
         height: 3px;
-        background-color: #009970;
+        background-image: linear-gradient(to right, #FF8008 0%, #FFC837 51%, #FF8008 100%);
+        ;
+        /* background-color: #009970; */
         visibility: hidden;
         transition: 0.3s ease-in-out;
     }
@@ -74,6 +76,81 @@
         visibility: visible;
     }
 }
+
+/* header */
+.mainbody {
+    background: linear-gradient(rgba(0, 0, 0, 0.9),
+            rgba(0, 0, 0, 0.9)), url(https://images.pexels.com/photos/1640774/pexels-photo-1640774.jpeg?cs=srgb&dl=pexels-ella-olsson-1640774.jpg&fm=jpg) no-repeat center;
+    background-size: cover;
+    width: 100%;
+    height: 50vh;
+}
+
+
+.headerbody .container {
+    margin-top: 35vh;
+    color: white;
+    z-index: 2;
+}
+
+
+.btn-grad {
+    background-image: linear-gradient(to right, #FF8008 0%, #FFC837 51%, #FF8008 100%);
+    margin: 10px;
+    padding: 7px 35px;
+    text-align: center;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: rgb(39, 39, 39);
+    border-radius: 10px;
+    display: block;
+}
+
+.btn-grad:hover {
+    background-position: right center;
+    /* change the direction of the change here */
+    color: black;
+    text-decoration: none;
+}
+
+
+#about {
+    background: linear-gradient(rgba(0, 0, 0, 0.9),
+            rgba(0, 0, 0, 0.9)), url(https://recipes.net/wp-content/uploads/2023/12/how-to-cook-pasta-bake-in-oven-1701918705.jpg) no-repeat center;
+    background-size: cover;
+    width: 100%;
+    height: 85vh;
+}
+
+#howitworks {
+    background: linear-gradient(rgba(0, 0, 0, 0.9),
+            rgba(0, 0, 0, 0.9)), url(https://do64rle4ostpe.cloudfront.net/01874671-2960-1632-c013-fb410e2c1b5e) no-repeat center;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+}
+
+#howitworks .fa-solid {
+    width: 50px;
+    height: 50px;
+    background-color: black;
+    padding: 15px;
+    border-radius: 50%;
+    color: #fa9d2c;
+    font-size: 20px;
+}
+#howitworks .fa-solid:hover {
+    color: white;
+}
+
+#howitworks .list-group-item {
+    background-color: transparent;
+    border: none;
+
+}
+
+/* recipe page */
+
 
 .hero-section {
     background: linear-gradient(rgba(0, 0, 0, 0.5),
@@ -98,6 +175,24 @@
     height: 10vh;
     z-index: 1;
     position: relative;
+}
+
+.hero-section .searchBtn {
+    background-image: linear-gradient(to right, #FF8008 0%, #FFC837 51%, #FF8008 100%);
+    border: none;
+    color: rgb(39, 39, 39);
+    text-align: center;
+    transition: 0.5s;
+    background-size: 200% auto;
+    border-radius: 10px;
+    display: block;
+}
+
+.hero-section .searchBtn:hover {
+    background-position: right center;
+    /* change the direction of the change here */
+    color: black;
+    text-decoration: none;
 }
 
 .recipe-container {
@@ -127,9 +222,11 @@
     /* margin-top: 110vh; */
     transition: transform 0.3s ease-in-out;
 }
-.recipe:hover{
+
+.recipe:hover {
     transform: scale(1.02);
 }
+
 .recipe img {
     height: 300px;
 }
@@ -150,20 +247,31 @@
 }
 
 .recipe button {
-    font-size: 20px;
-    font-weight: 600;
-    padding: 10px;
+    font-size: 18px;
+    /* font-weight: 600; */
+    padding: 7px;
     border-radius: 5px;
     border: none;
     cursor: pointer;
     margin: 18px auto;
-    background-color: #f44336;
-    color: #fff;
+    /* background-color: #f44336; */
+    /* color: #fff; */
+    background-image: linear-gradient(to right, #FF8008 0%, #FFC837 51%, #FF8008 100%);
+    text-align: center;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: rgb(39, 39, 39);
+    display: block;
 }
+
 
 .recipe button:hover,
 .recipe-close-btn:hover {
-    background-color: #ff5c5c;
+    /* background-color: #ff5c5c; */
+    background-position: right center;
+    /* change the direction of the change here */
+    color: black;
+    text-decoration: none;
 }
 
 .recipe-details {
@@ -193,6 +301,7 @@
     border-radius: 16px;
     --webkit-border-radius: 16px
 }
+
 body::-webkit-scrollbar {
     width: 16px;
 }
@@ -202,7 +311,8 @@ body::-webkit-scrollbar-thumb {
     /* border-radius: 16px; */
     /* --webkit-border-radius: 16px */
 }
-body::-webkit-scrollbar-track{
+
+body::-webkit-scrollbar-track {
     background-color: #ebebeb;
 
 }
