@@ -29,7 +29,8 @@
         <nav class="navbar navbar-expand-lg fixed-top">
             <div class="container-fluid">
                 <a class="navbar-brand me-auto  ms-4" href="#"><img width="100px" height="100px"
-                        src="./image/recipe-book-hand-drawn-cover-emblem-label-print-crossed-kitchen-utensil-under-ribbon-vector-illustration-162236321-removebg-preview.png" alt=""></a>
+                        src="./image/recipe-book-hand-drawn-cover-emblem-label-print-crossed-kitchen-utensil-under-ribbon-vector-illustration-162236321-removebg-preview.png"
+                        alt=""></a>
                 <!-- <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button> -->
@@ -43,10 +44,16 @@
                     <div class="offcanvas-body">
                         <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
                             <li class="nav-item">
-                                <a class="nav-link  mx-lg-2" aria-current="page" href="#">Home</a>
+                                <a class="nav-link  mx-lg-2" aria-current="page" href="./index.html">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active mx-lg-2" href="#">Explore</a>
+                                <a class="nav-link  mx-lg-2" href="#howitworks">How It Works</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active mx-lg-2" href="./receipe.html">Explore</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link mx-lg-2" href="#">Contact</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link mx-lg-2" href="#">Favorites</a>
@@ -58,7 +65,8 @@
                         </form> -->
                     </div>
                 </div>
-                <a href="#" class="login-button me-2 btn-grad me-4" style="text-decoration: none; font-size: 18px;">Login</a>
+                <a href="#" onclick="logout()" class="login-button me-2 btn-grad me-4"
+                    style="text-decoration: none; font-size: 18px;">Logout</a>
                 <button style="border: none;     font-size: 1.25rem;
                 " class="navbar-toggler pe-0 " type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
@@ -66,18 +74,21 @@
                 </button>
             </div>
         </nav>
-
+        <!-- <div class="mt-5 container" style="margin-top: 200px;">
+            <h1>Welcome <span id="displayUser" class="text-warning">User</span></h1>
+        </div> -->
         <section class="hero-section">
             <div class="heading container d-flex align-items-center justify-content-center fs-1 text-white flex-column">
                 <!-- <div class="recipe-container">
                     <h2 class="text-white">Search your favourite recipes</h2>
                 </div> -->
+                <h1 class="mt-5">Hi <span id="displayUser" class="text-warning">User</span>,</h1>
+                <h4 class="text-white pt-3"><em>We're happy to have you! Get ready for delicious <br> recipes, tips and baking inspiration in your inbox.</em></h4>
 
-                <form class="d-flex mt-3 " role="search">
-                    <input class="searchBox form-control me-2 "  type="text" placeholder="Search for recipes"
+                <form class="d-flex mt-4 " role="search">
+                    <input class="searchBox form-control me-2 " type="text" placeholder="Search for recipes"
                         aria-label="Search">
-                    <button class="searchBtn btn text-dark "
-                        type="button">Search</button>
+                    <button class="searchBtn btn text-dark " type="button">Search</button>
                 </form>
             </div>
         </section>
@@ -102,6 +113,25 @@
         crossorigin="anonymous"></script>
 </body>
 <script>
+    // login
+    if (localStorage.getItem("user")) {
+        displayUser.innerHTML = localStorage.getItem("user")
+    } else {
+        alert("Please Login!!!")
+        window.location = "login.html"
+
+    }
+
+    const logout = () => {
+        localStorage.removeItem("user")
+        window.location = "index.html"
+    }
+
+
+
+    // apirecipe
+
+
     const searchBox = document.querySelector('.searchBox')
     const searchBtn = document.querySelector('.searchBtn')
     const recipeContainer = document.querySelector('.recipe-container')
@@ -112,15 +142,15 @@
     const fetchRecipes = async (query) => {
         recipeContainer.innerHTML = "<h2>Fetching Recipes...</h2>";
 
-        try { 
-        const data = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`)
-        const response = await data.json()
+        try {
+            const data = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`)
+            const response = await data.json()
 
-        recipeContainer.innerHTML = ""
-        response.meals.forEach(meal => {
-            const recipeDiv = document.createElement('div')
-            recipeDiv.classList.add('recipe')
-            recipeDiv.innerHTML = `
+            recipeContainer.innerHTML = ""
+            response.meals.forEach(meal => {
+                const recipeDiv = document.createElement('div')
+                recipeDiv.classList.add('recipe')
+                recipeDiv.innerHTML = `
                     <img src="${meal.strMealThumb}">
                     <h3>${meal.strMeal}</h3>
                     <p><span>${meal.strArea}</span> Dish</p>
@@ -128,22 +158,22 @@
 
             `
 
-            const button = document.createElement('button')
-            button.textContent = "View Recipe"
-            recipeDiv.appendChild(button)
+                const button = document.createElement('button')
+                button.textContent = "View Recipe"
+                recipeDiv.appendChild(button)
 
-            //adding eventListener to recipe cutton
-            button.addEventListener('click', () => {
-                openRecipePopup(meal)
+                //adding eventListener to recipe cutton
+                button.addEventListener('click', () => {
+                    openRecipePopup(meal)
+                })
+
+                recipeContainer.appendChild(recipeDiv)
             })
+            // console.log(response.meals[0]);
+        } catch (error) {
+            recipeContainer.innerHTML = "<h2>Error in Fetching Recipes...</h2>";
 
-            recipeContainer.appendChild(recipeDiv)
-        })
-        // console.log(response.meals[0]);
-    }catch(error){
-        recipeContainer.innerHTML = "<h2>Error in Fetching Recipes...</h2>";
-
-    }
+        }
     }
 
 

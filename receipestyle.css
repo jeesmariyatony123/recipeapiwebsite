@@ -18,6 +18,91 @@
     padding: 0.5rem;
 }
 
+
+
+/* .modal{
+    background-color: transparent;
+    backdrop-filter: blur(50px);
+} */
+.modal .container {
+    position: absolute;
+    /* margin-left: 3%; */
+    /* margin-top: 1%; */
+    width: 440px;
+    height: 630px;
+    background-color: transparent;
+    backdrop-filter: blur(50px);
+
+
+}
+
+.modal .container .form h1 {
+    color: #fff;
+    margin-top: 60px;
+    margin-left: 50px;
+}
+
+.modal .container input {
+    margin-left: 50px;
+    margin-top: 20px;
+    width: 320px;
+    height: 47px;
+    background-color: #333;
+    border-radius: 3px;
+    border: none;
+    font-size: 20px;
+
+}
+
+.modal .container input::placeholder {
+    font-size: 17px;
+    margin-left: 15px;
+    padding: 12px;
+
+}
+
+.modal .container input[type=submit] {
+    width: 320px;
+    height: 45px;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-top: 40px;
+}
+
+.modal .container input[type=checkbox] {
+    width: 25px;
+    height: 18px;
+    border-radius: 5px;
+}
+
+.modal .container label {
+    color: rgb(128, 126, 126);
+}
+
+.modal .container .form a {
+    float: right;
+    margin-top: 24px;
+    margin-right: 64px;
+    color: rgb(125, 119, 119);
+    text-decoration: none;
+    color: #fff;
+}
+
+.modal .container .content {
+    position: absolute;
+    margin-top: 80px;
+    font-size: 9px;
+    margin-left: 55px;
+}
+
+.modal .container .content h6 {
+    color: rgb(128, 126, 126);
+}
+
+.modal .container button {
+    float: right;
+}
+
 /* .login-button {
     background-color: #009978;
     color: #fff;
@@ -139,6 +224,7 @@
     color: #fa9d2c;
     font-size: 20px;
 }
+
 #howitworks .fa-solid:hover {
     color: white;
 }
@@ -149,6 +235,95 @@
 
 }
 
+
+
+
+.foot-panel2 {
+    background-color: #0B0706;
+    color: white;
+    height: 402px;
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 40px;
+}
+
+.foot-panel2 ul {
+    margin-top: 40px;
+}
+
+.foot-panel2 ul a {
+    display: block;
+    text-decoration: none;
+    color: #919294;
+    font-size: 0.85rem;
+    margin-top: 10px;
+}
+
+.foot-panel2 ul a:hover {
+    text-decoration: underline;
+}
+
+.subscribe h1 {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    font-size: 40px;
+}
+
+label {
+    position: relative;
+}
+
+.subscribe input[type="text"] {
+    border: none;
+    width: 460px;
+    height: 50px;
+    padding: 0 16px;
+    border: 1px solid #919294;
+}
+
+.subscribe button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ffffff;
+    color: black;
+    padding: 0 16px;
+    /* letter-spacing: 1.5px; */
+    border: none;
+    cursor: pointer;
+}
+
+.subscribe button:hover {
+    background-color: #F2C94C;
+}
+
+/* login page */
+/* signin */
+/* .loginpage .form-control {
+    color: rgba(0, 0, 0, .87);
+    border-bottom-color: rgba(0, 0, 0, .42);
+    box-shadow: none !important;
+    border: none;
+    border-bottom: 1px solid;
+    border-radius: 4px 4px 0 0;
+} */
+.loginpage .form-label {
+    font-family: 800 !important;
+}
+
+@media only screen and (max-width:1039px) {
+    .loginpage form{
+        width: 50% !important;
+    }
+}
+@media only screen and (max-width:600px) {
+    .loginpage form{
+        width: 50% !important;
+    }
+}
+
+
 /* recipe page */
 
 
@@ -157,7 +332,7 @@
             rgba(0, 0, 0, 0.5)), url(https://images.pexels.com/photos/1640774/pexels-photo-1640774.jpeg?cs=srgb&dl=pexels-ella-olsson-1640774.jpg&fm=jpg) no-repeat center;
     background-size: cover;
     width: 100%;
-    height: 60vh;
+    height: 70vh;
 }
 
 .hero-section::before {
@@ -348,7 +523,7 @@ body::-webkit-scrollbar-track {
     font-size: 18px;
     padding: 8px;
     border-radius: 4px;
-    background-color: #f44336;
+    background-color: #f9983e;
     color: #fff;
     position: absolute;
     top: 20px;
